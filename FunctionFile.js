@@ -17,7 +17,7 @@ function defaultStatus(event) {
 
 function onButtonClick(event) {
     // 호출할 URL
-    var url = "https://example.com/api/endpoint";
+    var url = "https://www.naver.com";
 
     // URL 호출을 위한 XMLHttpRequest
     var xhr = new XMLHttpRequest();
