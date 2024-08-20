@@ -19,6 +19,8 @@ function onButtonClick(event) {
     // 새 탭에서 열 URL
     var url = "https://www.naver.com";
 
+    alert(url);
+
     // 새 브라우저 탭에서 URL 열기
     window.open(url, '_blank');
 
