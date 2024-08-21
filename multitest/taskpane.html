@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Pane</title>
+    <!-- Office.js 라이브러리 포함 -->
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f2f1;
+        }
+
+        .container {
+            padding: 10px;
+        }
+
+        .header {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+            .button:hover {
+                background-color: #005a9e;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Welcome to My Add-in</div>
+        <p>This is the task pane where you can interact with the add-in features.</p>
+        <button class="button" onclick="openWebsite()">Open Website</button>
+    </div>
+
+    <script>
+        Office.onReady(info => {
+            if (info.host === Office.HostType.Outlook) {
+                // Outlook에서 사용할 수 있는 로직을 여기에 추가
+            }
+        });
+
+        function openWebsite() {
+            // 웹사이트를 새 탭으로 여는 기능
+            window.open("https://hsi.cleverse.kr/externalHome", "_blank");
+        }
+    </script>
+</body>
+</html>
