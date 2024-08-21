@@ -2,10 +2,6 @@
 }
 
 
-Office.onReady((info) => {
-    Office.actions.associate("insertTemplate", insertTemplate);
-});
-
 /**
  * Writes 'Hello world!' to a new message body.
  
