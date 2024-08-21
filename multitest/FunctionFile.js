@@ -1,6 +1,6 @@
 ﻿const MyAddIn = {
     openWebsite: function (event) {
-        const url = "https://www.example.com";
+        const url = "https://www.naver.com";
         window.open(url, '_blank');
         event.completed();
     },
