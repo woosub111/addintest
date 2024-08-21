@@ -57,7 +57,7 @@
 };*/
 
 function insertTemplate(event) {
-   /* Office.context.mailbox.item.body.setAsync(
+   Office.context.mailbox.item.body.setAsync(
         "Hello world!",
         {
             coercionType: "html", // Write text as HTML
@@ -70,8 +70,8 @@ function insertTemplate(event) {
                 write(asyncResult.error.message);
             }
         }
-    );*/
-
+    );
+    /*
     const template = "<p>안녕하세요,</p><p>이것은 템플릿 내용입니다.</p>";
     Office.context.mailbox.item.body.setAsync(
         template,
@@ -87,7 +87,7 @@ function insertTemplate(event) {
             event.completed();
         }
     );
-
+    */
 }
 /*
 Office.onReady(() => {
