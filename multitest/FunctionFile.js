@@ -1,4 +1,7 @@
-﻿/*const MyAddIn = {
+﻿Office.initialize = function () {
+}
+
+/*const MyAddIn = {
     openWebsite: function (event) {
         const url = "https://www.naver.com";
         window.open(url, '_blank');
