@@ -43,40 +43,41 @@
         <p>This is the task pane where you can interact with the add-in features.</p>
         <button class="button" onclick="openWebsite()">Open Website</button>
         <button class="button" onclick="showEmailInfo()">showEmailInfo</button>
-    </div>
+        <div id="emailInfo"></div>
+        </div>
 
-    <script>
-        Office.onReady(info => {
-            if (info.host === Office.HostType.Outlook) {
-                // Outlook에서 사용할 수 있는 로직을 여기에 추가
+        <script>
+            Office.onReady(info => {
+                if (info.host === Office.HostType.Outlook) {
+                    // Outlook에서 사용할 수 있는 로직을 여기에 추가
+                }
+            });
+
+            function openWebsite() {
+                // 웹사이트를 새 탭으로 여는 기능
+                window.open("https://hsi.cleverse.kr/externalHome", "_blank");
             }
-        });
 
-        function openWebsite() {
-            // 웹사이트를 새 탭으로 여는 기능
-            window.open("https://hsi.cleverse.kr/externalHome", "_blank");
-        }
+            function showEmailInfo() {
+                // Ensure we're in a valid item context, such as reading an email
+                var item = Office.context.mailbox.item;
 
-        function showEmailInfo() {
-            // Ensure we're in a valid item context, such as reading an email
-            var item = Office.context.mailbox.item;
+                // Check if the current item is an email
+                if (item.itemType === Office.MailboxEnums.ItemType.Message) {
+                    // Get the subject of the email
+                    var subject = item.subject;
+                    // Get the sender's information
+                    var sender = item.from.displayName + " (" + item.from.emailAddress + ")";
 
-            // Check if the current item is an email
-            if (item.itemType === Office.MailboxEnums.ItemType.Message) {
-                // Get the subject of the email
-                var subject = item.subject;
-                // Get the sender's information
-                var sender = item.from.displayName + " (" + item.from.emailAddress + ")";
-
-                // Display the email information
-                var emailInfoDiv = document.getElementById('emailInfo');
-                emailInfoDiv.innerHTML = `<p><strong>Subject:</strong> ${subject}</p>
-                              <p><strong>Sender:</strong> ${sender}</p>`;
-            } else {
-                // Handle cases where the item is not an email
-                document.getElementById('emailInfo').innerHTML = "This item is not an email.";
+                    // Display the email information
+                    var emailInfoDiv = document.getElementById('emailInfo');
+                    emailInfoDiv.innerHTML = `<p><strong>Subject:</strong> ${subject}</p>
+                                      <p><strong>Sender:</strong> ${sender}</p>`;
+                } else {
+                    // Handle cases where the item is not an email
+                    document.getElementById('emailInfo').innerHTML = "This item is not an email.";
+                }
             }
-        }
-    </script>
+        </script>
 </body>
 </html>
