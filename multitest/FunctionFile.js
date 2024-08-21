@@ -4,7 +4,7 @@
 
 /**
  * Writes 'Hello world!' to a new message body.
- 
+ */
 function insertTemplate(event) {
     const template = "<p>안녕하세요,</p><p>이것은 템플릿 내용입니다.</p>";
     Office.context.mailbox.item.body.setAsync(
@@ -21,17 +21,6 @@ function insertTemplate(event) {
             event.completed();
         }
     );
-}*/
-
-function insertTemplate(event) {
-    // 새 탭에서 열 URL
-    var url = "https://hsi.cleverse.kr/externalHome";
-
-    // 새 브라우저 탭에서 URL 열기
-    window.open(url, '_blank');
-
-    // 작업 완료를 알리기 위해 Office.js의 event.completed() 호출
-    event.completed();
 }
 
 /*const MyAddIn = {
