@@ -92,6 +92,6 @@ function insertTemplate() {
 
 Office.onReady(() => {
     Office.actions.associate("openWebsite", MyAddIn.openWebsite);
-    Office.actions.associate("insertTemplate", MyAddIn.insertTemplate);
+    Office.actions.associate("insertTemplate", insertTemplate);
     Office.actions.associate("reportSpam", MyAddIn.reportSpam);
 });
