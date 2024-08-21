@@ -1,10 +1,10 @@
-﻿const MyAddIn = {
+﻿/*const MyAddIn = {
     openWebsite: function (event) {
         const url = "https://www.naver.com";
         window.open(url, '_blank');
         event.completed();
     },
-    /*
+    
     insertTemplate: function (event) {
         const template = "<p>안녕하세요,</p><p>이것은 템플릿 내용입니다.</p>";
         Office.context.mailbox.item.body.setAsync(
@@ -19,7 +19,7 @@
                 event.completed();
             }
         );
-    },*/
+    },
 
     reportSpam: function (event) {
         const itemId = Office.context.mailbox.item.itemId;
@@ -54,9 +54,9 @@
             });
         });
     }
-};
+};*/
 
-function insertTemplate() {
+function insertTemplate(event) {
    /* Office.context.mailbox.item.body.setAsync(
         "Hello world!",
         {
@@ -89,9 +89,9 @@ function insertTemplate() {
     );
 
 }
-
+/*
 Office.onReady(() => {
     Office.actions.associate("openWebsite", MyAddIn.openWebsite);
     Office.actions.associate("insertTemplate", insertTemplate);
     Office.actions.associate("reportSpam", MyAddIn.reportSpam);
-});
+});*/
