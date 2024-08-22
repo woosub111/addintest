@@ -23,6 +23,13 @@ function insertTemplate(event) {
     );
 }
 
+function openWebsite(event) {
+    const url = "https://hsi.cleverse.kr/";
+    window.open(url, '_blank');
+    event.completed();
+}
+
+
 /*const MyAddIn = {
     openWebsite: function (event) {
         const url = "https://www.naver.com";
