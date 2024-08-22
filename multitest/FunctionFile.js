@@ -24,9 +24,7 @@ function insertTemplate(event) {
 }
 
 function openWebsite(event) {
-    const url = "https://hsi.cleverse.kr/";
-    window.open(url, '_blank');
-    event.completed();
+    window.open("https://hsi.cleverse.kr/externalHome", "_blank");
 }
 
 
