@@ -29,8 +29,8 @@ function openWebsite(event) {
 
 function reportSpam(event) {
     const itemId = Office.context.mailbox.item.itemId;
-    MyAddIn.callApi('/reportSpam', { itemId: itemId })
-        .then(() => MyAddIn.moveToJunkFolder())
+    callApi('/reportSpam', { itemId: itemId })
+        .then(() => moveToJunkFolder())
         .then(() => {
             console.log("스팸 신고 및 이동 완료");
             event.completed();
@@ -40,6 +40,28 @@ function reportSpam(event) {
             event.completed();
         });
 }
+
+
+function callApi(endpoint, data) {
+    return fetch(`https://api.yourdomain.com${endpoint}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    }).then(response => response.json());
+},
+
+function moveToJunkFolder() {
+    return new Promise((resolve, reject) => {
+        Office.context.mailbox.item.moveAsync("junkemail", function (asyncResult) {
+            if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+                resolve();
+            } else {
+                reject(asyncResult.error);
+            }
+        });
+    });
+}
+
 
 /*const MyAddIn = {
     openWebsite: function (event) {
