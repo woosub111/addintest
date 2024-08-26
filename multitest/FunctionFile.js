@@ -36,6 +36,7 @@ function reportSpam(event) {
             event.completed();
         })
         .catch(error => {
+            window.alert("스팸 처리 중 오류 발생:", error);
             console.error("스팸 처리 중 오류 발생:", error);
             event.completed();
         });
