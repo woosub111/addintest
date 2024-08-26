@@ -49,7 +49,7 @@ function callApi(endpoint, data) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     }).then(response => response.json());
-},
+}
 
 function moveToJunkFolder() {
     return new Promise((resolve, reject) => {
