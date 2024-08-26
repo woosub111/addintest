@@ -29,14 +29,13 @@ function openWebsite(event) {
 
 function reportSpam(event) {
     const itemId = Office.context.mailbox.item.itemId;
-    callApi('/reportSpam', { itemId: itemId })
+    window.alert = mesage => callApi('/reportSpam', { itemId: itemId })
         .then(() => moveToJunkFolder())
         .then(() => {
             console.log("스팸 신고 및 이동 완료");
             event.completed();
         })
         .catch(error => {
-            window.alert("스팸 처리 중 오류 발생:", error);
             console.error("스팸 처리 중 오류 발생:", error);
             event.completed();
         });
