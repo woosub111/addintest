@@ -27,6 +27,19 @@ function openWebsite(event) {
     window.open("https://hsi.cleverse.kr/externalHome", "_blank");
 }
 
+function reportSpam(event) {
+    const itemId = Office.context.mailbox.item.itemId;
+    MyAddIn.callApi('/reportSpam', { itemId: itemId })
+        .then(() => MyAddIn.moveToJunkFolder())
+        .then(() => {
+            console.log("스팸 신고 및 이동 완료");
+            event.completed();
+        })
+        .catch(error => {
+            console.error("스팸 처리 중 오류 발생:", error);
+            event.completed();
+        });
+}
 
 /*const MyAddIn = {
     openWebsite: function (event) {
