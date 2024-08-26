@@ -57,7 +57,6 @@ function moveToJunkFolder() {
             if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
                 resolve();
             } else {
-                window.alert("스팸 처리 중 오류 발생:", error);
                 reject(asyncResult.error);
             }
         });
